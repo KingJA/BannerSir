@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#C3C3C3"
+        android:orientation="vertical"
+        tools:context="sample.kingja.bannersir.MainActivity">
+
+        <com.kingja.bannersir.pager.BannerSir
+            android:id="@+id/bannerPager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            app:autopager_indicatorDrawable="@drawable/lay_doit_rec"
+            app:autopager_indicatorGravity="bottom|center_horizontal"
+            app:autopager_indicatorHeight="8dp"
+            app:autopager_indicatorSpacing="10dp"
+            app:autopager_indicatorWidth="8dp" />
+
+        <com.kingja.bannersir.pager.BannerSir
+            android:id="@+id/bannerPager2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            app:autopager_indicatorDrawable="@drawable/lay_doit_rec"
+            app:autopager_indicatorGravity="bottom|center_horizontal"
+            app:autopager_indicatorHeight="8dp"
+            app:autopager_indicatorSpacing="10dp"
+            app:autopager_indicatorWidth="8dp" />
+
+    </LinearLayout>
+</ScrollView>
