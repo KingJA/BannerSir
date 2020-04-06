@@ -42,7 +42,6 @@ public class BannerSir extends FrameLayout {
     private static final int DEFAULT_INDICATOR_HEIGHT = 24;
     private static final int DEFAULT_INDICATOR_WIDTH = 24;
     private static final int DEFAULT_INDICATOR_SPACING = 12;
-    private static final int DEFAULT_HEIGHT = 160;
     private static final boolean DEFAULT_AUTO_ROLL = false;
     private static final boolean DEFAULT_UNLIMITED = false;
     private boolean autoRoll;
@@ -55,13 +54,11 @@ public class BannerSir extends FrameLayout {
     private int indicatorMarginTop;
     private int indicatorMarginRight;
     private int indicatorMarginBottom;
-    //    private ViewPager viewPager;
     private List<IndicatorView> indicators = new ArrayList<>();
     private Indicator indicator;
     private int count;
     private IndexBar indexBar;
     private Drawable indicatorDrawable;
-    private int indexBarMargin;
     private int indexBarGravity;
     private int indexBarMarginBottom;
     private int indexBarMarginRight;
@@ -142,8 +139,6 @@ public class BannerSir extends FrameLayout {
         indicatorSpacint = (int) a.getDimension(R.styleable.AutoPager_autopager_indicatorSpacing,
                 DEFAULT_INDICATOR_SPACING);
 
-        indexBarMargin = (int) a.getDimension(R.styleable.AutoPager_autopager_indexBarMargin,
-                DEFAULT_INDEXBAR_MARGIN);
         indexBarGravity = a.getInt(R.styleable.AutoPager_autopager_indexBarGravity, DEFAULT_INDEXBAR_GRAVITY);
 
         indexBarMarginLeft = (int) a.getDimension(R.styleable.AutoPager_autopager_indexBarMarginLeft,
@@ -157,10 +152,6 @@ public class BannerSir extends FrameLayout {
         a.recycle();
     }
 
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-    }
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
@@ -185,6 +176,7 @@ public class BannerSir extends FrameLayout {
         bannerPagerView = new BannerPagerView(getContext());
         bannerPagerView.setAdapter(adapter);
         bannerPagerView.setOnPageChangeListener(autoPagerChangeListener);
+        bannerPagerView.setAuto(autoRoll,period);
         addView(bannerPagerView, layoutParams);
     }
 

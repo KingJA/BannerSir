@@ -21,8 +21,11 @@
             app:autopager_indicatorDrawable="@drawable/lay_doit_rec"
             app:autopager_indicatorGravity="bottom|center_horizontal"
             app:autopager_indicatorHeight="8dp"
+            app:autopager_indicatorWidth="8dp"
+            app:autopager_indexBarMarginBottom="12dp"
+            app:autopager_indexBarGravity="bottom|right"
             app:autopager_indicatorSpacing="10dp"
-            app:autopager_indicatorWidth="8dp" />
+             />
 
         <com.kingja.bannersir.pager.BannerSir
             android:id="@+id/bannerPager2"
@@ -32,8 +35,15 @@
             app:autopager_indicatorDrawable="@drawable/lay_doit_rec"
             app:autopager_indicatorGravity="bottom|center_horizontal"
             app:autopager_indicatorHeight="8dp"
+            app:autopager_autoRoll="true"
+            app:autopager_period="3000"
             app:autopager_indicatorSpacing="10dp"
             app:autopager_indicatorWidth="8dp" />
+
+        <Switch
+            android:id="@+id/sh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 </ScrollView>

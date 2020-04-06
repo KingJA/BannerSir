@@ -24,7 +24,6 @@ public class BannerPagerView extends ViewGroup implements IBanner {
     /**
      * 可控制的参数：是否轮播，轮播间隔
      */
-
     private int childHeight;
     private int childWidth;
     private int childCount;
@@ -32,31 +31,25 @@ public class BannerPagerView extends ViewGroup implements IBanner {
     private int index = 0;
     private Scroller scroller;
     private String TAG = getClass().getSimpleName();
-    private boolean isAuto = true;
+    private boolean isAuto;
     private Timer timer = new Timer();
-    private int delay = 2000;
-    private int period = 2000;
     private boolean isClick;
-   private TimerTask  task = new TimerTask() {
+    private boolean isTouch;
+    private TimerTask task = new TimerTask() {
         @Override
         public void run() {
-            if (isAuto) {
-                post(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (++index >= childCount) {
-                            index = 0;
-                        }
-                        scrollTo(childWidth * index, 0);
-                        //瞬间滑动较为生硬，尝试改为平滑
-                        if (onPageChangeListener != null) {
-                            onPageChangeListener.onPageSelected(index);
-                        }
+            if (isAuto&&!isTouch) {
+                post(() -> {
+                    if (++index >= childCount) {
+                        index = 0;
+                    }
+                    scrollTo(childWidth * index, 0);
+                    //瞬间滑动较为生硬，尝试改为平滑
+                    if (onPageChangeListener != null) {
+                        onPageChangeListener.onPageSelected(index);
                     }
                 });
-
             }
-
         }
     };
     private OnBannerClickListener onBannerClickListener;
@@ -78,7 +71,7 @@ public class BannerPagerView extends ViewGroup implements IBanner {
 
     private void initBannerSir() {
         scroller = new Scroller(getContext());
-        timer.schedule(task, delay, period);
+
     }
 
 
@@ -124,12 +117,13 @@ public class BannerPagerView extends ViewGroup implements IBanner {
         return true;
     }
 
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 isClick = true;
-                stopAuto();
+                isTouch = true;
                 if (!scroller.isFinished()) {
                     //停止滑动
                     scroller.abortAnimation();
@@ -139,8 +133,6 @@ public class BannerPagerView extends ViewGroup implements IBanner {
             case MotionEvent.ACTION_MOVE:
                 isClick = false;
                 int moveX = (int) event.getX();
-                Log.e(TAG, "moveX: " + moveX);
-                Log.e(TAG, "getScrollX: " + getScrollX());
                 int distance = moveX - x;
                 scrollBy(-distance, 0);
                 x = moveX;
@@ -166,7 +158,7 @@ public class BannerPagerView extends ViewGroup implements IBanner {
                         onPageChangeListener.onPageSelected(index);
                     }
                 }
-                startAuto();
+                isTouch = false;
                 break;
             default:
                 break;
@@ -207,9 +199,14 @@ public class BannerPagerView extends ViewGroup implements IBanner {
     public void startAuto() {
         isAuto = true;
     }
+
     @Override
     public void stopAuto() {
         isAuto = false;
     }
 
+    public void setAuto(boolean isAuto, int period) {
+        this.isAuto = isAuto;
+        timer.schedule(task, period, period);
+    }
 }

@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BannerSir.iml" filepath="$PROJECT_DIR$/BannerSir.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/autopager/autopager.iml" filepath="$PROJECT_DIR$/autopager/autopager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bannersir/bannersir.iml" filepath="$PROJECT_DIR$/bannersir/bannersir.iml" />
     </modules>
   </component>
 </project>

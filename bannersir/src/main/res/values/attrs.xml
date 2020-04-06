@@ -8,7 +8,6 @@
         <attr name="autopager_indicatorWidth" format="dimension" />
         <attr name="autopager_indicatorHeight" format="dimension" />
         <attr name="autopager_indicatorSpacing" format="dimension" />
-        <attr name="autopager_indicatorMargin" format="dimension" />
         <attr name="autopager_indicatorMarginLeft" format="dimension" />
         <attr name="autopager_indicatorMarginTop" format="dimension" />
         <attr name="autopager_indicatorMarginRight" format="dimension" />
@@ -33,7 +32,6 @@
             <flag name="center_horizontal" value="0x01" />
             <flag name="center" value="0x11" />
         </attr>
-        <attr name="autopager_indexBarMargin" format="dimension" />
         <attr name="autopager_indexBarMarginLeft" format="dimension" />
         <attr name="autopager_indexBarMarginTop" format="dimension" />
         <attr name="autopager_indexBarMarginRight" format="dimension" />

@@ -13,7 +13,8 @@ import androidx.annotation.Nullable;
  * Email:kingjavip@gmail.com
  */
 public class SquareImageView extends ImageView {
-    private String TAG=getClass().getSimpleName();
+    private String TAG = getClass().getSimpleName();
+    private float ratio = 1.0f;
 
     public SquareImageView(Context context) {
         this(context, null);
@@ -30,6 +31,11 @@ public class SquareImageView extends ImageView {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        setMeasuredDimension(getMeasuredWidth(),getMeasuredWidth());
+        setMeasuredDimension(getMeasuredWidth(), (int) (getMeasuredWidth() * ratio));
+    }
+
+    public void setRatio(float ratio) {
+        this.ratio = ratio;
+        requestLayout();
     }
 }

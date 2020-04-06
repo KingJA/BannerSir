@@ -6,7 +6,9 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.kingja.bannersir.index.BaseIndexBar;
@@ -30,6 +32,17 @@ public class MainActivity extends AppCompatActivity {
         List<Pager> mkPagers = getMkPagers();
         BannerSir bannerSir = findViewById(R.id.bannerPager);
         BannerSir bannerSir2 = findViewById(R.id.bannerPager2);
+        Switch sh = findViewById(R.id.sh);
+        sh.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    bannerSir2.startAuto();
+                }else{
+                    bannerSir2.stopAuto();
+                }
+            }
+        });
 
         bannerSir.setAdapter(new BaseAutoAdapter<Pager>(this, jdPagers) {
             @Override
@@ -59,14 +72,13 @@ public class MainActivity extends AppCompatActivity {
         bannerSir2.setAdapter(new BaseAutoAdapter<Pager>(this, mkPagers) {
             @Override
             public View getView(Pager data, int position) {
-                ImageView imageView = new ImageView(MainActivity.this);
+                SquareImageView imageView = new SquareImageView(MainActivity.this);
+                imageView.setRatio(0.618f);
                 imageView.setScaleType(ImageView.ScaleType.FIT_XY);
                 imageView.setImageResource(data.getResId());
                 return imageView;
             }
         });
-
-
     }
 
     private List<Pager> getMkPagers() {
