@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<sample.kingja.bannersir.CustomScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -25,7 +25,14 @@
             app:autopager_indexBarMarginBottom="12dp"
             app:autopager_indexBarGravity="bottom|right"
             app:autopager_indicatorSpacing="10dp"
+            android:nestedScrollingEnabled="false"
              />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:background="#67948B"
+            android:layout_height="600dp"/>
 
         <com.kingja.bannersir.BannerSir
             android:id="@+id/bannerPager2"
@@ -46,4 +53,4 @@
             android:layout_height="wrap_content"/>
 
     </LinearLayout>
-</ScrollView>
+</sample.kingja.bannersir.CustomScrollView>

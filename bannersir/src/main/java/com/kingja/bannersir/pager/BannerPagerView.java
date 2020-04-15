@@ -2,6 +2,7 @@ package com.kingja.bannersir.pager;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +37,7 @@ public class BannerPagerView extends ViewGroup implements IBanner {
         public void run() {
             if (isAuto&&!isTouch) {
                 post(() -> {
+                    Log.e(TAG, "index: "+index );
                     if (++index >= childCount) {
                         index = 0;
                     }

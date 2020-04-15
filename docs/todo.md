@@ -41,6 +41,7 @@ indicator尺寸不同及切换动画
 
 后续功能：
 页面切换效果
+解决在scrollview中的滑动冲突问题，目前用重写scrollview解决，不彻底
 
 
 

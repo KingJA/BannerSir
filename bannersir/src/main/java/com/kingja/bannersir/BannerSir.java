@@ -182,11 +182,15 @@ public class BannerSir extends FrameLayout {
     }
 
     public void startAuto() {
-        bannerPagerView.startAuto();
+        if (bannerPagerView != null) {
+            bannerPagerView.startAuto();
+        }
     }
 
     public void stopAuto() {
-        bannerPagerView.stopAuto();
+        if (bannerPagerView != null) {
+            bannerPagerView.stopAuto();
+        }
     }
 
     public void setIndicator(Indicator indicator) {
