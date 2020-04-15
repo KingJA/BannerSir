@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
         bannerSir.setAdapter(new BaseAutoAdapter<Pager>(this, jdPagers) {
             @Override
-            public View getView(Pager data, int position) {
+            public View getView(Context context,Pager data, int position) {
                 SquareImageView squareImageView = new SquareImageView(MainActivity.this);
                 squareImageView.setScaleType(ImageView.ScaleType.FIT_XY);
                 squareImageView.setImageResource(data.getResId());
@@ -71,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
 
         bannerSir2.setAdapter(new BaseAutoAdapter<Pager>(this, mkPagers) {
             @Override
-            public View getView(Pager data, int position) {
-                SquareImageView imageView = new SquareImageView(MainActivity.this);
+            public View getView(Context context,Pager data, int position) {
+                SquareImageView imageView = new SquareImageView(context);
                 imageView.setRatio(0.618f);
                 imageView.setScaleType(ImageView.ScaleType.FIT_XY);
                 imageView.setImageResource(data.getResId());

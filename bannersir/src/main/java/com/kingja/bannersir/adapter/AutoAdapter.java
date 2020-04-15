@@ -12,7 +12,7 @@ import java.util.List;
  * Email:kingjavip@gmail.com
  */
 public interface AutoAdapter<T> {
-    View getView(T data, int position);
+//    View getView(T data, int position);
     View getView(Context context,T data, int position);
 
     List<T> getData();

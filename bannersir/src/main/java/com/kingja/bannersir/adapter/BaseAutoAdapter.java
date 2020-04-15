@@ -20,8 +20,6 @@ public abstract class BaseAutoAdapter<T> implements AutoAdapter<T> {
         this.list = list;
     }
 
-    public abstract View getView(T data, int position);
-
     @Override
     public List<T> getData() {
         return list;

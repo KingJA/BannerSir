@@ -167,7 +167,8 @@ public class BannerPagerView extends ViewGroup implements IBanner {
                 ViewGroup.LayoutParams.WRAP_CONTENT);
         List<T> data = adapter.getData();
         for (int i = 0; i < data.size(); i++) {
-            View view = adapter.getView(data.get(i), i);
+            //TODO
+            View view = adapter.getView(getContext(),data.get(i), i);
             addView(view, lp);
         }
     }
