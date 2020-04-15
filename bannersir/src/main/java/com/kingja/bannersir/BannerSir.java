@@ -165,7 +165,7 @@ public class BannerSir extends FrameLayout {
         }
         stepViewPager(adapter);
         count = adapter.getData().size();
-        if (indicator != null) {
+        if (indicator != null && count > 1) {
             addIndicatior();
         }
     }
@@ -177,7 +177,7 @@ public class BannerSir extends FrameLayout {
         bannerPagerView = new BannerPagerView(getContext());
         bannerPagerView.setAdapter(adapter);
         bannerPagerView.setOnPageChangeListener(autoPagerChangeListener);
-        bannerPagerView.setAuto(autoRoll,period);
+        bannerPagerView.setAuto(autoRoll, period);
         addView(bannerPagerView, layoutParams);
     }
 
@@ -217,7 +217,9 @@ public class BannerSir extends FrameLayout {
                 break;
             }
         }
-        addIndicatior();
+        if (count > 1) {
+            addIndicatior();
+        }
     }
 
 
