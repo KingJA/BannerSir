@@ -1,14 +1,13 @@
-package com.kingja.bannersir;
+package com.kingja.bannersir.pager;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Scroller;
 
-import com.kingja.bannersir.pager.AutoAdapter;
+import com.kingja.bannersir.adapter.AutoAdapter;
 
 import java.util.List;
 import java.util.Timer;
@@ -21,9 +20,6 @@ import java.util.TimerTask;
  * Email:kingjavip@gmail.com
  */
 public class BannerPagerView extends ViewGroup implements IBanner {
-    /**
-     * 可控制的参数：是否轮播，轮播间隔
-     */
     private int childHeight;
     private int childWidth;
     private int childCount;
@@ -44,7 +40,6 @@ public class BannerPagerView extends ViewGroup implements IBanner {
                         index = 0;
                     }
                     scrollTo(childWidth * index, 0);
-                    //瞬间滑动较为生硬，尝试改为平滑
                     if (onPageChangeListener != null) {
                         onPageChangeListener.onPageSelected(index);
                     }
@@ -125,7 +120,6 @@ public class BannerPagerView extends ViewGroup implements IBanner {
                 isClick = true;
                 isTouch = true;
                 if (!scroller.isFinished()) {
-                    //停止滑动
                     scroller.abortAnimation();
                 }
                 x = (int) event.getX();
@@ -145,7 +139,6 @@ public class BannerPagerView extends ViewGroup implements IBanner {
                 } else if (index > childCount - 1) {
                     index = childCount - 1;
                 }
-//                scrollTo(index * childWidth, 0);
                 if (isClick) {
                     if (onBannerClickListener != null) {
                         onBannerClickListener.onBannerClick(index);

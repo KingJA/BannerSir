@@ -1,6 +1,6 @@
-package com.kingja.bannersir;
+package com.kingja.bannersir.pager;
 
-import com.kingja.bannersir.pager.AutoAdapter;
+import com.kingja.bannersir.adapter.AutoAdapter;
 
 /**
  * Description:TODO

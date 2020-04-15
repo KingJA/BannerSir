@@ -3,8 +3,8 @@ package sample.kingja.bannersir;
 import android.content.Context;
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
 
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
@@ -12,8 +12,8 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import com.kingja.bannersir.index.BaseIndexBar;
-import com.kingja.bannersir.pager.BannerSir;
-import com.kingja.bannersir.pager.BaseAutoAdapter;
+import com.kingja.bannersir.BannerSir;
+import com.kingja.bannersir.adapter.BaseAutoAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

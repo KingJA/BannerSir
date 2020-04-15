@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.kingja.bannersir.pager.BaseAutoAdapter;
+import com.kingja.bannersir.adapter.BaseAutoAdapter;
 
 import java.util.List;
 

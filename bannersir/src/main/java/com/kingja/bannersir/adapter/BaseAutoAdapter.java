@@ -1,4 +1,4 @@
-package com.kingja.bannersir.pager;
+package com.kingja.bannersir.adapter;
 
 import android.content.Context;
 import android.view.View;

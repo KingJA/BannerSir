@@ -26,14 +26,13 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.annotation:annotation:1.1.0'
-    implementation 'androidx.viewpager:viewpager:1.0.0'
+    implementation "com.android.support:support-annotations:${SUPPORT_VERSION}"
 }
 publish {
     artifactId = 'bannersir'
     userOrg = 'kingja'
     groupId = 'com.kingja.bannersir'
-    publishVersion = '1.1.0'
+    publishVersion = '1.1.1'
     desc = 'Android library used for banner.'
     website = 'https://github.com/KingJA/BannerSir'
 }

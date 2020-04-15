@@ -1,5 +1,6 @@
-package com.kingja.bannersir.pager;
+package com.kingja.bannersir.adapter;
 
+import android.content.Context;
 import android.view.View;
 
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.List;
  */
 public interface AutoAdapter<T> {
     View getView(T data, int position);
+    View getView(Context context,T data, int position);
 
     List<T> getData();
 

@@ -13,7 +13,7 @@
         android:orientation="vertical"
         tools:context="sample.kingja.bannersir.MainActivity">
 
-        <com.kingja.bannersir.pager.BannerSir
+        <com.kingja.bannersir.BannerSir
             android:id="@+id/bannerPager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,10 +27,10 @@
             app:autopager_indicatorSpacing="10dp"
              />
 
-        <com.kingja.bannersir.pager.BannerSir
+        <com.kingja.bannersir.BannerSir
             android:id="@+id/bannerPager2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
             android:layout_marginBottom="10dp"
             app:autopager_indicatorDrawable="@drawable/lay_doit_rec"
             app:autopager_indicatorGravity="bottom|center_horizontal"
