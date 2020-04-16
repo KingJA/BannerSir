@@ -20,6 +20,7 @@ import com.kingja.bannersir.index.IndexBar;
 import com.kingja.bannersir.indicator.DrawableIndicatorView;
 import com.kingja.bannersir.indicator.Indicator;
 import com.kingja.bannersir.indicator.IndicatorView;
+import com.kingja.bannersir.pager.BannerPager;
 import com.kingja.bannersir.pager.BannerPagerView;
 
 import java.util.ArrayList;
@@ -66,7 +67,7 @@ public class BannerSir extends FrameLayout {
     private int indexBarMarginTop;
     private int indexBarMarginLeft;
     private boolean unlimited;
-    private BannerPagerView bannerPagerView;
+    private BannerPager bannerPagerView;
 
     public BannerSir(@NonNull Context context) {
         this(context, null);
@@ -174,7 +175,7 @@ public class BannerSir extends FrameLayout {
         LayoutParams layoutParams = new LayoutParams(LayoutParams.MATCH_PARENT,
                 LayoutParams.MATCH_PARENT);
 
-        bannerPagerView = new BannerPagerView(getContext());
+        bannerPagerView = new BannerPager(getContext());
         bannerPagerView.setAdapter(adapter);
         bannerPagerView.setOnPageChangeListener(autoPagerChangeListener);
         bannerPagerView.setAuto(autoRoll, period);
@@ -223,7 +224,7 @@ public class BannerSir extends FrameLayout {
     }
 
 
-    private BannerPagerView.OnPageChangeListener autoPagerChangeListener = new BannerPagerView.OnPageChangeListener() {
+    private BannerPager.OnPageChangeListener autoPagerChangeListener = new BannerPager.OnPageChangeListener() {
         @Override
         public void onPageSelected(int position) {
             int index = position % count;

@@ -9,14 +9,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#C3C3C3"
         android:orientation="vertical"
         tools:context="sample.kingja.bannersir.MainActivity">
 
         <com.kingja.bannersir.BannerSir
             android:id="@+id/bannerPager"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="230dp"
             android:layout_marginBottom="10dp"
             app:autopager_indicatorDrawable="@drawable/lay_doit_rec"
             app:autopager_indicatorGravity="bottom|center_horizontal"
@@ -25,7 +24,8 @@
             app:autopager_indexBarMarginBottom="12dp"
             app:autopager_indexBarGravity="bottom|right"
             app:autopager_indicatorSpacing="10dp"
-            android:nestedScrollingEnabled="false"
+            app:autopager_autoRoll="false"
+            app:autopager_period="2000"
              />
 
 

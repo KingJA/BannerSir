@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
@@ -21,7 +22,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 //    private int[] jdImgRes = {R.mipmap.jd1, R.mipmap.jd2, R.mipmap.jd3, R.mipmap.jd4, R.mipmap.jd5};
-    private int[] jdImgRes = {R.mipmap.jd1};
+    private int[] jdImgRes = {R.mipmap.jd1, R.mipmap.jd2};
     private int[] mkImgRes = {R.mipmap.mk1, R.mipmap.mk2, R.mipmap.mk3, R.mipmap.mk4, R.mipmap.mk5};
     private int[] zfbImgRes = {R.mipmap.mk1, R.mipmap.mk2, R.mipmap.mk3, R.mipmap.mk4, R.mipmap.mk5};
     private String TAG = getClass().getSimpleName();
@@ -52,6 +53,12 @@ public class MainActivity extends AppCompatActivity {
                 SquareImageView squareImageView = new SquareImageView(MainActivity.this);
                 squareImageView.setScaleType(ImageView.ScaleType.FIT_XY);
                 squareImageView.setImageResource(data.getResId());
+                squareImageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.e(TAG, "onClick: "+position );
+                    }
+                });
                 return squareImageView;
             }
         });
