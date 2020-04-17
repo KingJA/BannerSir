@@ -174,11 +174,9 @@ public class BannerSir extends FrameLayout {
     private <T> void stepViewPager(AutoAdapter<T> adapter) {
         LayoutParams layoutParams = new LayoutParams(LayoutParams.MATCH_PARENT,
                 LayoutParams.MATCH_PARENT);
-
         bannerPagerView = new BannerPager(getContext());
-        bannerPagerView.setAdapter(adapter);
+        bannerPagerView.setAdapter(adapter,autoRoll, period);
         bannerPagerView.setOnPageChangeListener(autoPagerChangeListener);
-        bannerPagerView.setAuto(autoRoll, period);
         addView(bannerPagerView, layoutParams);
     }
 

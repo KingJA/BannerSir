@@ -32,7 +32,7 @@ public class BannerPager extends ViewPager implements IBanner {
     private TimerTask task = new TimerTask() {
         @Override
         public void run() {
-            if (isAuto && !isTouch) {
+            if (isAuto && !isTouch && count > 1) {
                 post(() -> {
                     setCurrentItem(getCurrentItem() + 1);
                 });
@@ -72,11 +72,12 @@ public class BannerPager extends ViewPager implements IBanner {
     }
 
     @Override
-    public <T> void setAdapter(AutoAdapter<T> adapter) {
+    public <T> void setAdapter(AutoAdapter<T> adapter, boolean isAuto, int period) {
         count = adapter.getData().size();
-        setOffscreenPageLimit(1);
+        this.isAuto = isAuto;
         setAdapter(new AutoPagerAdapter<>(adapter));
         addOnPageChangeListener(autoPagerChangeListener);
+        timer.schedule(task, period, period);
     }
 
     public interface OnBannerClickListener {
@@ -136,7 +137,7 @@ public class BannerPager extends ViewPager implements IBanner {
 
         @Override
         public int getCount() {
-            return Integer.MAX_VALUE;
+            return (pageViewList.size() != 1 && isAuto) ? Integer.MAX_VALUE : pageViewList.size();
         }
 
         @Override
@@ -146,7 +147,7 @@ public class BannerPager extends ViewPager implements IBanner {
 
         @Override
         public void destroyItem(ViewGroup container, int position, Object object) {
-            container.removeView((View) object);
+//            container.removeView((View) object);
         }
 
         @Override
@@ -156,9 +157,7 @@ public class BannerPager extends ViewPager implements IBanner {
 
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
-            Log.e(TAG, "instantiateItem: " + position);
             View pageview = pageViewList.get(position % pageViewList.size());
-            container.addView(pageview);
             ViewParent parent = pageview.getParent();
             if (parent != null) {
                 ((ViewPager) pageview.getParent()).removeView(pageview);

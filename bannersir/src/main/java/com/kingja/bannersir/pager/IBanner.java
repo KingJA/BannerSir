@@ -11,5 +11,5 @@ import com.kingja.bannersir.adapter.AutoAdapter;
 public interface IBanner {
     void startAuto();
     void stopAuto();
-    <T> void setAdapter(AutoAdapter<T> adapter);
+    <T> void setAdapter(AutoAdapter<T> adapter, boolean autoRoll, int period);
 }

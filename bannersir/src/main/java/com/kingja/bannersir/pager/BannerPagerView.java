@@ -170,7 +170,7 @@ public class BannerPagerView extends ViewGroup implements IBanner {
 
 
     @Override
-    public <T> void setAdapter(AutoAdapter<T> adapter) {
+    public <T> void setAdapter(AutoAdapter<T> adapter, boolean autoRoll, int period) {
         ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
         List<T> data = adapter.getData();

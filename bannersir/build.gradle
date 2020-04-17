@@ -33,7 +33,7 @@ publish {
     artifactId = 'bannersir'
     userOrg = 'kingja'
     groupId = 'com.kingja.bannersir'
-    publishVersion = '1.1.6'
+    publishVersion = '1.1.7'
     desc = 'Android library used for banner.'
     website = 'https://github.com/KingJA/BannerSir'
 }
